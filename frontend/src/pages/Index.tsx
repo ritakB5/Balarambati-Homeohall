@@ -33,10 +33,9 @@ const staggerChildren = {
 };
 
 const HomePage: React.FC = () => {
-  // TODO: Replace this with real data fetching logic or props
-  const doctors: import('@/components/doctors/DoctorCard').Doctor[] = [];
   return (
     <Layout>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 lg:py-28">
         {/* Background decorative elements */}
@@ -227,7 +226,7 @@ const HomePage: React.FC = () => {
                 Book your appointments online with our easy scheduling system and receive timely reminders for your consultations.
               </p>
               
-              <Link to="/appointments/book" className="inline-flex items-center text-homeo-blue font-medium group-hover:underline">
+              <Link to="/contact" className="inline-flex items-center text-homeo-blue font-medium group-hover:underline">
                 Book Appointment <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </motion.div>
@@ -284,7 +283,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Doctors */}
+      {/* Our Specialists */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full bg-homeo-green-light/10 blur-3xl"></div>
@@ -326,29 +325,51 @@ const HomePage: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             variants={staggerChildren}
           >
-            {doctors.length > 0 ? (
-              doctors.map((doctor: import('@/components/doctors/DoctorCard').Doctor) => (
-                <motion.div 
-                  key={doctor.id}
-                  variants={fadeIn}
-                  transition={{ duration: 0.5 }}
-                >
-                  <DoctorCard doctor={doctor} />
-                </motion.div>
-              ))
-            ) : (
-              <motion.div 
-                className="col-span-full text-center text-gray-500 py-12 bg-gray-50/50 rounded-xl border border-gray-100"
-                variants={fadeIn}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="flex flex-col items-center justify-center">
-                  <User className="h-12 w-12 text-gray-300 mb-3" />
-                  <p>No doctors found at the moment.</p>
-                  <p className="text-sm mt-2">Please check back later or contact us for assistance.</p>
-                </div>
-              </motion.div>
-            )}
+            <motion.div 
+              className="col-span-full text-center text-gray-500 py-12 bg-gray-50/50 rounded-xl border border-gray-100"
+              variants={fadeIn}
+              transition={{ duration: 0.5 }}
+            >
+            <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              {
+                name: 'Amit Roy',
+                specialization: 'Homeopathic Physician',
+                experience: '12 years',
+                image: 'https://randomuser.me/api/portraits/men/32.jpg',
+              },
+              {
+                name: 'Priya Sharma',
+                specialization: 'Child Specialist',
+                experience: '8 years',
+                image: 'https://randomuser.me/api/portraits/women/44.jpg',
+              },
+              {
+                name: 'Rakesh Gupta',
+                specialization: 'Chronic Disease Expert',
+                experience: '15 years',
+                image: 'https://randomuser.me/api/portraits/men/65.jpg',
+              },
+              {
+                name: 'Sneha Das',
+                specialization: 'Skin & Allergy Specialist',
+                experience: '10 years',
+                image: 'https://randomuser.me/api/portraits/women/68.jpg',
+              },
+            ].map((doc, idx) => (
+              <div key={doc.name + idx}>
+                <DoctorCard
+                  name={doc.name}
+                  specialization={doc.specialization}
+                  experience={doc.experience}
+                  image={doc.image}
+                />
+              </div>
+            ))}
+          </div>
+        </div>  
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -469,20 +490,8 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
               <Button 
                 size="lg" 
-                className="bg-white text-homeo-green-dark hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group"
-                asChild
-              >
-                <Link to="/appointments/book" className="flex items-center px-8">
-                  <CalendarClock className="mr-2 h-5 w-5" />
-                  Book Your Appointment
-                  <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              
-              <Button 
-                size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white/10 transition-all duration-300"
+                className="border-white text-black hover:bg-white/10 transition-all duration-300"
                 asChild
               >
                 <Link to="/contact" className="px-8">

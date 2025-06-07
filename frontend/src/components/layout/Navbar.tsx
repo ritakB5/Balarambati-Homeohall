@@ -9,7 +9,7 @@ import {
   SheetClose
 } from "@/components/ui/sheet";
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -65,22 +65,6 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
             <NavLinks activeRoute={location.pathname} />
-            <div className="flex items-center space-x-3 ml-4">
-              <Button 
-                className="bg-homeo-green-dark hover:bg-homeo-blue transition-colors duration-300" 
-                size="sm"
-                asChild
-              >
-                <Link to="/appointments/book">
-                  <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    Book Appointment
-                  </motion.span>
-                </Link>
-              </Button>
-            </div>
           </nav>
           
           {/* Mobile Navigation */}

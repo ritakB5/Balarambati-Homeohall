@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -52,7 +50,7 @@ const Footer: React.FC = () => {
                 rel="noreferrer" 
                 className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
               >
-                <Facebook size={18} className="text-white" />
+                <img src="/facebook.svg" alt="Facebook" className="text-white" />
               </a>
               <a 
                 href="https://instagram.com" 
@@ -60,7 +58,7 @@ const Footer: React.FC = () => {
                 rel="noreferrer" 
                 className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
               >
-                <Instagram size={18} className="text-white" />
+                <img src="/instagram.svg" alt="Instagram" className="text-white" />
               </a>
               <a 
                 href="https://twitter.com" 
@@ -68,7 +66,7 @@ const Footer: React.FC = () => {
                 rel="noreferrer" 
                 className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors duration-300"
               >
-                <Twitter size={18} className="text-white" />
+                <img src="/twitter.svg" alt="Twitter" className="text-white" />
               </a>
             </div>
           </motion.div>
@@ -91,10 +89,8 @@ const Footer: React.FC = () => {
                 { to: "/", label: "Home" },
                 { to: "/doctors", label: "Our Doctors" },
                 { to: "/treatments", label: "Treatments" },
-                { to: "/appointments/book", label: "Book Appointment" },
                 { to: "/about", label: "About Us" },
                 { to: "/contact", label: "Contact" },
-                { to: "/my-appointment", label: "My Appointments" }
               ].map((link, index) => (
                 <li key={index}>
                   <Link 
@@ -176,21 +172,6 @@ const Footer: React.FC = () => {
                     <p>Friday: Closed</p>
                   </div>
                 </div>
-              </div>
-            </div>
-            
-            {/* Subscribe to Newsletter */}
-            <div className="mt-8 p-4 bg-white/5 rounded-lg border border-white/10">
-              <h5 className="text-white text-sm font-medium mb-3">Subscribe to our newsletter</h5>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="flex-1 bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-homeo-blue/50"
-                />
-                <Button className="bg-homeo-blue hover:bg-homeo-blue/80 text-white">
-                  Subscribe
-                </Button>
               </div>
             </div>
           </motion.div>
