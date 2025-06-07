@@ -110,7 +110,7 @@ const HomePage: React.FC = () => {
                 {/* Main image with frame */}
                 <div className="relative p-2 bg-white rounded-2xl shadow-xl overflow-hidden">
                   <img 
-                    src="/src/istockphoto-814351018-612x612.jpg"
+                    src="/public/istockphoto-814351018-612x612.jpg"
                     alt="Homeopathic Treatment"
                     className="rounded-xl w-full h-auto object-cover"
                   />
